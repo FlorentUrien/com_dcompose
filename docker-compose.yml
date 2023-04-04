@@ -1,0 +1,12 @@
+version: '3'
+services:
+  conta:
+    build:
+      context: ./conta
+    command: python -c "from conta import aa; aa()"
+    depends_on:
+      - contb
+  contb:
+    build:
+      context: ./contb
+    command: uvicorn contb:app --host 0.0.0.0 --port 5000
